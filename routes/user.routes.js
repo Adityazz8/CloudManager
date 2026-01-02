@@ -4,6 +4,10 @@ const { body,validationResult } = require('express-validator');
 const userModel = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
+const FileModel = require('../models/file.model');
+const auth = require('../middleware/auth');
 
 /* /user/test */
 // router.get('/test', (req, res) => {
@@ -83,12 +87,44 @@ router.post('/login',
         process.env.JWT_SECRET,
             
         )
-        res.json({ 
-            token 
-        })    
-
+        res.cookie('token', token)
+        res.send('Login successful')
     }
 )      
+
+// Multer setup for local uploads
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        const name = Date.now() + '-' + file.originalname.replace(/\s+/g, '_');
+        cb(null, name);
+    }
+});
+const upload = multer({ storage: storage, limits: { fileSize: 200 * 1024 * 1024 } }); // 200MB limit
+
+// Protected upload route
+router.post('/upload', auth, upload.single('file'), async (req, res) => {
+    if (!req.file) return res.status(400).json({ message: 'No file uploaded' });
+    const f = await FileModel.create({
+        owner: req.user.userId,
+        originalName: req.file.originalname,
+        filename: req.file.filename,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+        path: req.file.path
+    });
+    res.json({ file: f });
+});
+
+// Protected download/serve route
+router.get('/file/:id', auth, async (req, res) => {
+    const file = await FileModel.findById(req.params.id);
+    if (!file) return res.status(404).json({ message: 'File not found' });
+    if (file.owner.toString() !== req.user.userId) return res.status(403).json({ message: 'Forbidden' });
+    res.sendFile(path.resolve(file.path));
+});
 
 module.exports = router;
 
