@@ -1,10 +1,10 @@
-# Google Drive Clone
+# CloudManager
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green)](https://www.mongodb.com/atlas)
 
-A full-stack Google Drive clone built with Node.js, Express, MongoDB, and Cloudinary. Upload, manage, and share your files securely with user authentication and cloud storage.
+A full-stack CloudManager built with Node.js, Express, MongoDB, and Cloudinary. Upload, manage, and share your files securely with user authentication and cloud storage.
 
 ## ✨ Features
 
