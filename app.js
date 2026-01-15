@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
+app.use(express.static('public')); // Serve static files from public directory
+
 
 app.use('/user', userRouter)
 app.use('/', indexRouter)

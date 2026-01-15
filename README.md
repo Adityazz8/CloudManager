@@ -1,150 +1,274 @@
-# CloudManager
+# ☁️ CloudManager
 
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green)](https://www.mongodb.com/atlas)
+<div align="center">
 
-A full-stack CloudManager built with Node.js, Express, MongoDB, and Cloudinary. Upload, manage, and share your files securely with user authentication and cloud storage.
+![CloudManager Banner](public/dashboard_preview_mockup_1768502310084.png)
+
+**A modern, secure cloud storage solution with a beautiful dark-themed interface**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-5.x-lightgrey.svg)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)](https://www.mongodb.com/cloud/atlas)
+
+[Live Demo](#) • [Features](#-features) • [Installation](#-installation) • [Usage](#-usage)
+
+</div>
+
+---
 
 ## ✨ Features
 
-- 🔐 **User Authentication**: Secure registration and login with JWT tokens
-- 📁 **File Upload**: Upload files of various formats to Cloudinary storage
-- 📋 **File Management**: View, download, and delete your uploaded files
-- 🔒 **Secure Access**: Protected routes with authentication middleware
-- 🎨 **Modern UI**: Clean and responsive interface using EJS templates
-- ☁️ **Cloud Storage**: Reliable file storage with Cloudinary CDN
-- 🗄️ **Database Integration**: MongoDB Atlas for user and file metadata
-- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
+### 🔐 **Secure Authentication**
+- User registration and login with JWT tokens
+- Password hashing with bcrypt
+- Protected routes and session management
+
+### 📁 **Folder Organization**
+- Create nested folders for better file organization
+- Breadcrumb navigation for easy folder traversal
+- Hierarchical folder structure with parent-child relationships
+
+### 📤 **File Management**
+- **Drag & Drop Upload** - Simply drag files into the upload zone
+- **Cloud Storage** - Files stored securely on Cloudinary
+- **File Preview** - View file details, dates, and metadata
+- **Quick Delete** - Remove files and folders with confirmation modal
+
+### 🎨 **Modern UI/UX**
+- Premium dark theme with glassmorphism effects
+- Responsive design for all devices
+- Smooth animations and transitions
+- Custom confirmation modals
+- Toast notifications for user feedback
+
+### ⚡ **Performance**
+- Fast file uploads with Cloudinary CDN
+- Optimized database queries with MongoDB
+- Efficient file handling with Multer
+
+---
 
 ## 🛠️ Tech Stack
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB Atlas** - NoSQL database
-- **Mongoose** - ODM for MongoDB
-- **JWT** - JSON Web Tokens for authentication
-- **bcrypt** - Password hashing
+| Category | Technology |
+|----------|-----------|
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB Atlas |
+| **Authentication** | JWT, bcrypt |
+| **File Storage** | Cloudinary |
+| **File Upload** | Multer |
+| **Template Engine** | EJS |
+| **Styling** | Tailwind CSS v4 |
+| **Icons** | Remix Icons |
 
-### Frontend
-- **EJS** - Templating engine
-- **CSS** - Styling (custom)
-- **JavaScript** - Client-side interactions
-
-### Storage & Services
-- **Cloudinary** - Cloud storage and CDN
-- **Multer** - File upload middleware
+---
 
 ## 📋 Prerequisites
 
-Before running this application, make sure you have:
+Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [MongoDB Atlas](https://www.mongodb.com/atlas) account (free tier available)
-- [Cloudinary](https://cloudinary.com/) account (free tier available)
+- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
+- **npm** or **yarn**
+- **MongoDB Atlas Account** - [Sign up](https://www.mongodb.com/cloud/atlas/register)
+- **Cloudinary Account** - [Sign up](https://cloudinary.com/users/register/free)
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Adityazz8/CloudManager.git
+cd CloudManager
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env` file in the root directory:
+
+```env
+# MongoDB Connection
+MONGO_URI=your_mongodb_connection_string
+
+# JWT Secret
+JWT_SECRET=your_jwt_secret_key
+
+# Cloudinary Configuration
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
+
+**How to get these values:**
+
+- **MongoDB URI**: Create a cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and get your connection string
+- **JWT Secret**: Generate a random secure string (e.g., `openssl rand -base64 32`)
+- **Cloudinary Credentials**: Get from your [Cloudinary Dashboard](https://cloudinary.com/console)
+
+### 4. Start the development server
+
+```bash
+npm start
+```
+
+The application will be running at `http://localhost:3000`
+
+---
 
 ## 📖 Usage
 
-### User Registration
-1. Visit `http://localhost:3000/user/register`
-2. Fill in your details (username, email, password)
-3. Click "Register"
+### Creating an Account
 
-### User Login
-1. Visit `http://localhost:3000/user/login`
-2. Enter your credentials
-3. Click "Login" to access your dashboard
+1. Navigate to `http://localhost:3000`
+2. Click **"Get Started"** or **"Register"**
+3. Fill in your details (username, email, password)
+4. Click **"Create Account"**
 
-### File Operations
-- **Upload**: Select a file and click "Upload File"
-- **View**: See all your uploaded files in the "Your Files" section
-- **Download**: Click on any file link to download
-- **Delete**: Use the delete button next to each file
+### Uploading Files
 
-## 🏗️ Project Structure
+**Method 1: Drag & Drop**
+- Simply drag files from your computer into the upload zone
+- Files will upload automatically
+
+**Method 2: Click to Upload**
+- Click the **"Upload File"** button
+- Select a file from your computer
+- Click **"Open"** to upload
+
+### Managing Folders
+
+**Create a Folder:**
+1. Click the **"New Folder"** button
+2. Enter a folder name
+3. Click **"Create"**
+
+**Navigate Folders:**
+- Click on any folder to open it
+- Use breadcrumb navigation to go back
+
+**Delete a Folder:**
+1. Hover over a folder
+2. Click the red trash icon
+3. Confirm deletion in the modal
+
+### Deleting Files
+
+1. Find the file you want to delete
+2. Click the **"Delete"** button
+3. Confirm in the custom modal
+4. File will be removed from both database and Cloudinary
+
+---
+
+## 📁 Project Structure
 
 ```
-google-drive-clone/
+CloudManager/
 ├── config/
-│   ├── config.js          # Cloudinary configuration
-│   └── db.js              # MongoDB connection
-├── middleware/
-│   └── ...                # Custom middleware
+│   ├── cloudinary.config.js    # Cloudinary configuration
+│   └── db.js                    # MongoDB connection
 ├── models/
-│   ├── file.model.js      # File schema
-│   └── user.model.js      # User schema
+│   ├── file.model.js            # File schema
+│   ├── folder.model.js          # Folder schema
+│   └── user.model.js            # User schema
 ├── routes/
-│   ├── index.routes.js    # Main application routes
-│   └── user.routes.js     # User authentication routes
+│   ├── index.routes.js          # Main routes (home, upload, delete)
+│   └── user.routes.js           # Auth routes (login, register)
 ├── views/
-│   ├── home.ejs           # Dashboard/home page
-│   ├── index.ejs          # Landing page
-│   ├── login.ejs          # Login form
-│   └── register.ejs       # Registration form
-├── uploads/               # Temporary upload directory
-├── app.js                 # Main application file
-├── package.json           # Dependencies and scripts
-├── .env.example           # Environment variables template
-└── README.md             # Project documentation
+│   ├── home.ejs                 # Dashboard page
+│   ├── index.ejs                # Landing page
+│   ├── login.ejs                # Login page
+│   └── register.ejs             # Registration page
+├── public/
+│   └── dashboard_preview_mockup.png  # Assets
+├── .env.example                 # Environment variables template
+├── .gitignore                   # Git ignore rules
+├── app.js                       # Express app setup
+├── package.json                 # Dependencies
+└── README.md                    # This file
 ```
 
-## 🔌 API Endpoints
+---
 
-### Authentication Routes
-- `GET /user/register` - Registration page
-- `POST /user/register` - Register new user
-- `GET /user/login` - Login page
-- `POST /user/login` - Authenticate user
-- `POST /user/logout` - Logout user
+## 🔒 Security Features
 
-### File Management Routes
-- `GET /home` - User dashboard (authenticated)
-- `POST /upload` - Upload file (authenticated)
-- `GET /files` - Get user's files (authenticated)
-- `DELETE /files/:id` - Delete specific file (authenticated)
+- **Password Hashing**: All passwords are hashed using bcrypt before storage
+- **JWT Authentication**: Secure token-based authentication
+- **Protected Routes**: Middleware ensures only authenticated users can access files
+- **File Ownership**: Users can only delete their own files and folders
+- **Environment Variables**: Sensitive credentials stored in `.env` file
 
-### Utility Routes
-- `GET /` - Root route (redirects to login or home)
-- `GET /login` - Redirect to login page
-- `GET /register` - Redirect to registration page
+---
 
-### Code Quality
+## 🎨 Screenshots
 
-- Uses ESLint for code linting (configure as needed)
-- Follows standard Node.js project structure
-- Implements proper error handling and validation
+### Landing Page
+![Landing Page](public/dashboard_preview_mockup_1768502310084.png)
 
-## 🐛 Troubleshooting
+### Dashboard
+Beautiful dark-themed interface with drag-and-drop upload, folder navigation, and file management.
 
-### Common Issues
+---
 
-**"MongoDB connection error"**
-- Verify your `MONGO_URI` in `.env`
-- Check IP whitelist in MongoDB Atlas
-- Ensure network connectivity
+## 🤝 Contributing
 
-**"File upload failed"**
-- Validate Cloudinary credentials
-- Check file size limits (100MB for free tier)
-- Verify internet connection
+Contributions are welcome! Here's how you can help:
 
-**"Authentication failed"**
-- Clear browser cookies
-- Check JWT_SECRET configuration
-- Verify user credentials
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-For detailed troubleshooting steps, see [SETUP_GUIDE.md](SETUP_GUIDE.md).
+---
 
-## 📊 File Limits (Free Tier)
+## 📝 License
 
-| Service | Storage | Bandwidth | File Size |
-|---------|---------|-----------|-----------|
-| MongoDB Atlas | 512 MB | - | - |
-| Cloudinary | 25 GB | 25 GB/month | 100 MB |
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
 
-## 📄 License
+## 👨‍💻 Author
 
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+**Aditya**
+
+- GitHub: [@Adityazz8](https://github.com/Adityazz8)
+- Repository: [CloudManager](https://github.com/Adityazz8/CloudManager)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Tailwind CSS](https://tailwindcss.com/) for the styling framework
+- [Remix Icons](https://remixicon.com/) for beautiful icons
+- [Cloudinary](https://cloudinary.com/) for cloud storage
+- [MongoDB](https://www.mongodb.com/) for the database
+- [Express.js](https://expressjs.com/) for the web framework
+
+---
+
+## 📞 Support
+
+If you have any questions or run into issues, please:
+
+1. Check the [Issues](https://github.com/Adityazz8/CloudManager/issues) page
+2. Create a new issue if your problem isn't already listed
+3. Provide as much detail as possible
+
+---
+
+<div align="center">
+
+**Made with ❤️ by Aditya**
+
+⭐ Star this repo if you find it helpful!
+
+</div>
