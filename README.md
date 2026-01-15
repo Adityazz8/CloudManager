@@ -74,55 +74,6 @@ Before you begin, ensure you have the following installed:
 - **Cloudinary Account** - [Sign up](https://cloudinary.com/users/register/free)
 
 ---
-
-## 🚀 Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/Adityazz8/CloudManager.git
-cd CloudManager
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Set up environment variables
-
-Create a `.env` file in the root directory:
-
-```env
-# MongoDB Connection
-MONGO_URI=your_mongodb_connection_string
-
-# JWT Secret
-JWT_SECRET=your_jwt_secret_key
-
-# Cloudinary Configuration
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-```
-
-**How to get these values:**
-
-- **MongoDB URI**: Create a cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and get your connection string
-- **JWT Secret**: Generate a random secure string (e.g., `openssl rand -base64 32`)
-- **Cloudinary Credentials**: Get from your [Cloudinary Dashboard](https://cloudinary.com/console)
-
-### 4. Start the development server
-
-```bash
-npm start
-```
-
-The application will be running at `http://localhost:3000`
-
----
-
 ## 📖 Usage
 
 ### Creating an Account
@@ -218,57 +169,9 @@ Beautiful dark-themed interface with drag-and-drop upload, folder navigation, an
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Author
-
-**Aditya**
-
-- GitHub: [@Adityazz8](https://github.com/Adityazz8)
-- Repository: [CloudManager](https://github.com/Adityazz8/CloudManager)
-
----
-
-## 🙏 Acknowledgments
-
-- [Tailwind CSS](https://tailwindcss.com/) for the styling framework
-- [Remix Icons](https://remixicon.com/) for beautiful icons
-- [Cloudinary](https://cloudinary.com/) for cloud storage
-- [MongoDB](https://www.mongodb.com/) for the database
-- [Express.js](https://expressjs.com/) for the web framework
-
----
-
-## 📞 Support
-
-If you have any questions or run into issues, please:
-
-1. Check the [Issues](https://github.com/Adityazz8/CloudManager/issues) page
-2. Create a new issue if your problem isn't already listed
-3. Provide as much detail as possible
-
----
-
-<div align="center">
-
-**Made with ❤️ by Aditya**
-
-⭐ Star this repo if you find it helpful!
-
-</div>
