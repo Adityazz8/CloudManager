@@ -1,11 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudManager - Secure Cloud Storage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello, World!</h1>
+
+<body class="bg-gray-950 text-white min-h-screen selection:bg-blue-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b-0">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="ri-cloud-line text-xl text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">CloudManager</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="/user/login"
+                    class="px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white transition-colors">Login</a>
+                <a href="/user/register"
+                    class="px-5 py-2.5 text-sm font-medium bg-white text-black rounded-lg hover:bg-gray-200 transition-colors shadow-lg shadow-white/5">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-32 overflow-hidden">
+        <!-- Background Effects -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10 opacity-50 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-[800px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] -z-10 pointer-events-none">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-fade-in-up">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-sm font-medium text-gray-400">v2.0 is now live</span>
+            </div>
+
+            <h1 class="text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter">
+                Storage for the <br />
+                <span class="text-gradient">Modern Web</span>
+            </h1>
+
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Securely store, manage, and share your files in the cloud.
+                Experience lightning-fast uploads and a beautiful interface designed for productivity.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/user/login"
+                    class="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2">
+                    <span>Launch App</span>
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+                <a href="#features"
+                    class="w-full sm:w-auto px-8 py-4 glass hover:bg-white/10 text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2">
+                    <span>Learn More</span>
+                    <i class="ri-arrow-down-line"></i>
+                </a>
+            </div>
+
+            <!-- Dashboard Preview -->
+            <div
+                class="mt-20 rounded-2xl border border-white/10 shadow-2xl overflow-hidden glass p-2 max-w-5xl mx-auto transform hover:scale-[1.01] transition-duration-700">
+                <div
+                    class="rounded-xl overflow-hidden bg-gray-900 border border-white/5 aspect-video w-full flex items-center justify-center relative group">
+                    <!-- Abstract UI Preview (Placeholder for real screenshot) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                        <i
+                            class="ri-dashboard-3-line text-6xl text-gray-700 group-hover:text-blue-500/50 transition-colors"></i>
+                        <p class="mt-4 text-gray-600 font-mono text-sm">Dashboard Interface</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 relative bg-black/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything you need</h2>
+                <p class="text-gray-400">Powerful features wrapped in a simple design.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform">
+                        <i class="ri-shield-check-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secure Encryption</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Your files are encrypted at rest and in transit. Bank-grade security for your personal data.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+                        <i class="ri-speed-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lightning Fast</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Optimized content delivery network ensures your files load instantly, anywhere in the world.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i class="ri-layout-masonry-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Modern Interface</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        A clutter-free, intuitive dashboard that makes managing thousands of files a breeze.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-16 text-center">How it works</h2>
+
+            <div class="grid gap-12">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-2xl font-bold shrink-0">
+                        1</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Create an account</h3>
+                        <p class="text-gray-400">Sign up in seconds. No credit card required. Get 5GB of free storage
+                            immediately.</p>
+                    </div>
+                </div>
+
+                <!-- Connector Line (Visual only) -->
+                <div class="hidden md:block w-0.5 h-12 bg-white/10 ml-8 -my-6"></div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div
+                        class="w-16 h-16 rounded-full glass flex items-center justify-center text-2xl font-bold shrink-0 text-blue-400 border border-blue-500/30">
+                        2</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Upload your files</h3>
+                        <p class="text-gray-400">Drag and drop documents, images, and videos directly into your
+                            dashboard.</p>
+                    </div>
+                </div>
+
+                <!-- Connector Line -->
+                <div class="hidden md:block w-0.5 h-12 bg-white/10 ml-8 -my-6"></div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div
+                        class="w-16 h-16 rounded-full glass flex items-center justify-center text-2xl font-bold shrink-0 text-purple-400 border border-purple-500/30">
+                        3</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Access anywhere</h3>
+                        <p class="text-gray-400">Log in from any device to view, download, or share your files securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6">
+        <div
+            class="max-w-4xl mx-auto bg-gradient-to-r from-blue-900/50 to-purple-900/50 glass border border-blue-500/30 rounded-3xl p-12 text-center overflow-hidden relative">
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold mb-6">Ready to get started?</h2>
+                <p class="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+                    Join thousands of users who trust CloudManager for their storage needs.
+                </p>
+                <a href="/user/register"
+                    class="inline-block px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-xl">
+                    Create Free Account
+                </a>
+            </div>
+
+            <!-- Bg glow -->
+            <div class="absolute inset-0 bg-blue-600/10 blur-3xl -z-0"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 CloudManager. All rights reserved.</p>
+    </footer>
+
 </body>
+
 </html>

@@ -1,3 +1,15 @@
 .env
 node_modules
 drive-dc70a-firebase-adminsdk-fbsvc-1feca4eb44.json
+
+# Log files
+*.log
+debug.log
+request.log
+
+# Test files
+test_upload.txt
+
+# OS files
+.DS_Store
+Thumbs.db

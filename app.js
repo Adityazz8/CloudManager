@@ -14,10 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
+
 app.use('/user', userRouter)
 app.use('/', indexRouter)
 
-// Redirect helper routes
+
 app.get('/login', (req, res) => {
     res.redirect('/user/login');
 });
@@ -31,10 +32,10 @@ app.get('/', (req, res) => {
     if (token) {
         res.redirect('/home');
     } else {
-        res.redirect('/user/login');
+        res.render('index');
     }
 });
 
-app.listen(3000,() => {
+app.listen(3000, () => {
     console.log('server is running on port 3000');
 })

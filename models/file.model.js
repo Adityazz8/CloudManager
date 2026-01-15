@@ -8,6 +8,7 @@ const fileSchema = new mongoose.Schema({
     url: { type: String, required: true }, // Cloudinary URL
     publicId: { type: String, required: true }, // Cloudinary public ID for deletion
     uploadedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    folder: { type: mongoose.Schema.Types.ObjectId, ref: 'Folder', default: null },
     uploadedAt: { type: Date, default: Date.now }
 });
 
